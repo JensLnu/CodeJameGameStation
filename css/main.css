@@ -69,8 +69,12 @@ main {
     padding: 3rem;
 }
 
-.game-container {
+.displayContainer {
     display: none;
+}
+
+.game-container {
+    /*display: none;*/
     padding: 10px 10px;
     height: fit-content;
     border: 1px solid var(--main--color--purple);

@@ -40,6 +40,7 @@ const hidePreviousGame = () => {
     const allGames = [guessNumberGame, rockPapperSissor, memory, pigGame, minehunter];
     
     for (let i = 0; i < allGames.length; i++) {
-        allGames[i].style.display = 'none';
+        // allGames[i].style.display = 'none';
+        allGames[i].classList.add('displayContainer');
     }
 }

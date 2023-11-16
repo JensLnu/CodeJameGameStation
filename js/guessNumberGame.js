@@ -5,21 +5,21 @@ const submitNumBtn = document.getElementById("submitNum");
 const yourGuesses = document.getElementById("yourGuesses");
 const botGuess = document.getElementById("botGuess");
 // globala variabler
-let correctAnswer;
-let numberOfGuesses;
-let guessNum;
-let userGuesses;           // array för användarens gissningar
-let botGuesses;            // array för bottens gissningar
-let userScore = 0;         // spelarens poäng
-let botScore = 0;          // bottens poäng
-let lowGuess;
-let highGuess;
-let guessOutOfbounds = false;
-let usersTurn = true;   // håller reda på vems tur i spelet det är
+let correctAnswer,          // rätt svar
+    numberOfGuesses,        // antal gissningar
+    guessNum,               // användarens/bottens gissning
+    userGuesses,            // array för användarens gissningar
+    botGuesses,             // array för bottens gissningar
+    userScore = 0,          // spelarens poäng
+    botScore = 0,           // bottens poäng
+    lowGuess,               // lägsta gissningen         
+    highGuess,              // högsta gissningen
+    guessOutOfbounds = false, // håller koll på om användaren gör ogiltig inmatning
+    usersTurn = true;  // håller reda på vems tur i spelet det är
 
 function newGuessNumberGame() {
     const guessNumberGame = document.querySelector(".guessNumberGame");
-    guessNumberGame.style.display = 'block';
+    guessNumberGame.classList.remove('displayContainer');
     correctAnswer = Math.floor(Math.random() * 101);
     gameMessage.textContent = '';
     yourGuesses.textContent = '';
@@ -38,13 +38,13 @@ function startGame() {
     if (usersTurn) {
         guessedNumberInput.focus();
         submitNumBtn.addEventListener("click", guessNumber);
-        guessedNumberInput.addEventListener("keydown", enablerEnter);
+        guessedNumberInput.addEventListener("keydown", enableEnter);
     } else { // bottens tur
         renderBotsGuess();
     }
 }
 
-function enablerEnter(e) {
+function enableEnter(e) {
     if (e.keyCode == 13) guessNumber();
 }
 
@@ -63,7 +63,7 @@ function guessNumber() {
     if (guessNum == correctAnswer) {
         gameMessage.textContent = `Congratulations you have guessed the right number: ${correctAnswer}`;
         userScore++;
-        return gameFinnished();
+        return gameFinished();
 
     } else if (guessNum < correctAnswer) {
         gameMessage.textContent = `${guessNum} is to low.`;
@@ -97,7 +97,7 @@ function checkPreviousGuess() {
 
 function removeEventAndClass() {
     submitNumBtn.removeEventListener("click", guessNumber);
-    guessedNumberInput.removeEventListener("keydown", enablerEnter);
+    guessedNumberInput.removeEventListener("keydown", enableEnter);
     guessedNumberInput.classList.remove('wrongInput');
 }
 
@@ -110,7 +110,7 @@ function renderBotsGuess() {
     if (guessNum == correctAnswer) {
         gameMessage.textContent = `Bot won! It guessed the right number: ${correctAnswer}`;
         botScore++;
-        return gameFinnished();
+        return gameFinished();
     } else if (guessNum < correctAnswer) {
         gameMessage.textContent = `Bot guessed ${guessNum}, that is to low.`;
         lowGuess = guessNum + 1;
@@ -121,13 +121,13 @@ function renderBotsGuess() {
     if (numberOfGuesses == 5) {
         setTimeout(function () {
             gameMessage.textContent = `Draw! Both reached ${numberOfGuesses} guesses, The number was ${correctAnswer}`;
-            return gameFinnished();
+            return gameFinished();
         }, 2000);
     }
     startGame();
 }
 
-function gameFinnished() {
+function gameFinished() {
     const guessGameScore = document.getElementById("guessGameScore");
     guessGameScore.textContent = `You - Bot: ${userScore} - ${botScore}`;
 
