@@ -1,0 +1,56 @@
+.local-guess-number-container {
+    display: flex;
+    max-width: 700px;
+    flex-direction: column;
+    align-items: center;
+    height: min-content;
+}
+
+.local-guess-number-container h2,
+.local-guess-number-container button {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.local-guess-number-container p {
+    margin: 2rem 2rem 0 2rem;
+    text-align: center;
+}
+
+#guessedNumber {
+    width: 50px;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.wrongInput {
+    background-color: #ce4257;
+}
+
+.buttonStyle {
+    background-color: var(--detail--light--purple);
+    padding: 0 10px;
+    border-radius: 5px;
+}
+
+.bothGuesses {
+    display: flex;
+}
+
+#yourGuesses, #botGuess, #guessGameScore {
+    margin: 0;
+}
+
+@media (max-width: 750px) {
+    .local-guess-number-container h2 {
+        font-size: 1.4rem;
+    }
+
+    .local-guess-number-container p {
+        font-size: 0.9rem;
+    }
+
+    main {
+        padding: 0 3rem;
+    }
+}

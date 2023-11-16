@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Jam Game Station</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/guessNumberGame.css">
+    <link rel="stylesheet" href="css/rockPapperSissor.css">
+    <link rel="stylesheet" href="css/memory.css">
+    <link rel="stylesheet" href="css/pigGame.css">
+    <link rel="stylesheet" href="css/minehunter.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap">
+</head>
+<!-- https://qlok.notion.site/Lektion-online-91b585bb888549669ba273d17869cd6e -->
+
+<body>
+    <header>
+        <h1>Code Jam Game Station</h1>
+        <ul class="header-ul">
+            <li class="header-li" id="guess-the-number">Guess the number</li>
+            <li class="header-li" id="rock-papper-sissor">Rock, Papper, Sissor</li>
+            <li class="header-li" id="memory">Memory</li>
+            <li class="header-li" id="the-pig-game">The Pig Game</li>
+            <li class="header-li" id="minehunter">Minehunter</li>
+        </ul>
+    </header>
+    <main>
+        <section class="guessNumberGame game-container">
+            <div class="local-guess-number-container">
+                <h2>Number Guessing Game</h2>
+                <p>Your task here is to guess the right number between 0 and 100 before the Bot does. You only have five guesses otherwise, it will be a draw. </p>
+                <label for="guessedNumber">
+                    <input type="text" id="guessedNumber">
+                    <button id="submitNum" class="buttonStyle">Guess</button>
+                </label>
+                <p id="gameMessage"></p>
+                <div class="bothGuesses">
+                    <div>
+                        <P class="p-your-guesses">Your guesses</P>
+                        <p id="yourGuesses"></p>
+                    </div>
+                    <div>
+                        <p>Bots guesses</p>
+                        <p id="botGuess"></p>
+                    </div>
+                </div>
+                <h2>Score</h2>
+                <p id="guessGameScore"></p>
+            </div>
+        </section>
+        <section class="rockPapperSissor game-container">
+            <p>Rock, Papper, Sissor is under developing!</p>
+        </section>
+        <section class="memory game-container">
+            <p>The Memory game is under developing!</p>
+        </section>
+        <section class="pigGame game-container">
+            <p>The Pig Game is under developing!</p>
+        </section>
+        <section class="minehunter game-container">
+            <p>Minehunter is under developing!</p>
+        </section>
+    </main>
+    <footer>
+        <ul class="footer-ul">
+            <li>Jens Bengtsson</li>
+            <li>2023-11-15</li>
+        </ul>
+    </footer>
+    <!-- script -->
+    <script src="js/guessNumberGame.js"></script>
+    <script src="js/rockPapperSissor.js"></script>
+    <script src="js/memory.js"></script>
+    <script src="js/pigGame.js"></script>
+    <script src="js/minehunter.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

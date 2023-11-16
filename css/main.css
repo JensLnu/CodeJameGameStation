@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    color: var(--text--dark--purple);
+}
+
+:root {
+    --main--color--purple:#5a189a;
+    --detail--light--purple:#e0aaff;
+    --text--dark--purple:#240046;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    margin: 2rem;
+    font-size: 3rem;
+    text-shadow: 1px 1px 5px var(--detail--light--purple);
+}
+
+header {
+    height: 200px;
+    background: linear-gradient(to bottom, var(--main--color--purple), var(--detail--light--purple));
+}
+
+header, footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.header-ul, .footer-ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.header-ul li, .footer-ul li {
+    list-style: none;
+}
+
+.header-ul li, .buttonStyle {
+    padding: 3px 10px;
+    border: 2px solid var(--detail--light--purple);
+    border-radius: 2px;
+    box-shadow: 1px 1px 5px var(--main--color--purple);
+    transition: opacity 1s;
+}
+
+.header-ul li:hover, .buttonStyle:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+main {
+    background-color: var(--detail--light--purple);
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+}
+
+.game-container {
+    display: none;
+    padding: 10px 10px;
+    height: fit-content;
+    border: 1px solid var(--main--color--purple);
+    border-radius: 2px;
+    box-shadow: 1px 1px 4px var(--main--color--purple);
+}
+
+footer {
+    justify-content: center;
+    height: 10vh;
+    background: linear-gradient(to top, var(--main--color--purple)10%, var(--detail--light--purple));
+    text-shadow: 1px 1px 5px var(--detail--light--purple);
+}
+
+@media (max-width: 750px) {
+    h1 {
+        margin: 1rem 0;
+        font-size: 1.8rem;
+    }   
+}
