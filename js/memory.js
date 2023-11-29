@@ -1,4 +1,4 @@
 const newMemoryGame = () => {
     const memoryContainer = document.querySelector(".memory");
-    memoryContainer.classList.remove('displayContainer');
+    memoryContainer.classList.remove('display-none');
 }

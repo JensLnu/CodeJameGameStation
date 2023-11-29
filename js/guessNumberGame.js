@@ -19,7 +19,7 @@ let correctAnswer,          // rätt svar
 
 function newGuessNumberGame() {
     const guessNumberGame = document.querySelector(".guessNumberGame");
-    guessNumberGame.classList.remove('displayContainer');
+    guessNumberGame.classList.remove('display-none');
     correctAnswer = Math.floor(Math.random() * 101);
     gameMessage.textContent = '';
     yourGuesses.textContent = '';

@@ -84,10 +84,6 @@ main {
     padding: 3rem;
 }
 
-.displayContainer {
-    display: none;
-}
-
 .game-container {
     padding: 10px 10px;
     height: fit-content;

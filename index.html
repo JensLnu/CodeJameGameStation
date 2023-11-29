@@ -28,7 +28,7 @@
     </header>
     <main>
         <!-- number guessing game -->
-        <section class="guessNumberGame game-container displayContainer">
+        <section class="guessNumberGame game-container display-none">
             <div class="local-guess-number-container flex">
                 <h2>Number Guessing Game</h2>
                 <p>Your task here is to guess the right number between 0 and 100 before the Bot does. You only have five guesses otherwise, it will be a draw. </p>
@@ -53,55 +53,58 @@
         </section>
 
         <!-- rock, paper, sissor -->
-        <section class="rockPapperSissor game-container paus-displayContainer">
+        <section class="rockPapperSissor game-container display-none">
             <div class="local-rock-paper-sissor-container flex">
                 <h2>Rock, Paper, Sissor</h2>
                 <p>traditional rules, first to five. Make your choies!</p>
                 <figure class="flex weapons">
                     <div class="flex hover">
                         <p>rock</p>
-                        <img src="./img/rockPaperSissor/rock-right.png" alt="hand that display 'rock' in the game" class="weapon-choies selected-weapon1">
+                        <img src="./img/rockPaperSissor/rock-left.png" alt="hand that display 'rock' in the game" class="weapon-choies">
                     </div>
                     <div class="flex hover">
                         <p>paper</p>
-                        <img src="./img/rockPaperSissor/paper-right.png" alt="hand that display 'paper' in the game" class="weapon-choies">
+                        <img src="./img/rockPaperSissor/paper-left.png" alt="hand that display 'paper' in the game" class="weapon-choies">
                     </div>
                     <div class="flex hover">
                         <p>sissor</p>
-                        <img src="./img/rockPaperSissor/sissor-right.png" alt="hand that display 'sissor' in the game" class="weapon-choies">
+                        <img src="./img/rockPaperSissor/sissor-left.png" alt="hand that display 'sissor' in the game" class="weapon-choies">
                     </div>
                 </figure>
                 <div class="game-board flex display-none">
                     <div class="your-hand playing-hands flex">
                         <p>you</p>
-                        <img class="your-animation1" src="./img/rockPaperSissor/rock-left.png" alt="hand that display 'rock' in the game">
+                        <img src="./img/rockPaperSissor/rock-left.png" alt="hand that display 'rock' in the game">
                     </div>
-                    <p id="game-message"></p>
+                    <p id="game-message" class="flex"></p>
                     <div class="bot-hand playing-hands flex">
                         <p>bot</p>
-                        <img class="bot-animation1" src="./img/rockPaperSissor/rock-right.png" alt="hand that display 'rock' in the game">
+                        <img class="mirrored" src="./img/rockPaperSissor/rock-left.png" alt="hand that display 'rock' in the game">
                     </div>
                 </div>
-                <div class="score">
+                <div class="score flex">
                     <h2>Score</h2>
                     <p id="rockPaperSissorScore"></p>
-                    <button class="buttonStyle display-none hover">Play Again</button>
+                    <div class="end-of-game-RPS game-container flex display-none">
+                        <p></p>
+                        <button id="play-again-btr-RPS" class="buttonStyle hover">Play Again</button>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- memory -->
-        <section class="memory game-container displayContainer">
+        <section class="memory game-container display-none">
             <p>The Memory game is under developing!</p>
         </section>
 
         <!-- the pig game -->
-        <section class="pigGame game-container displayContainer">
+        <section class="pigGame game-container display-none">
             <p>The Pig Game is under developing!</p>
         </section>
 
         <!-- minehunter -->
-        <section class="minehunter game-container displayContainer">
+        <section class="minehunter game-container display-none">
             <p>Minehunter is under developing!</p>
         </section>
     </main>

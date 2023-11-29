@@ -1,4 +1,4 @@
 const newMinehunterGame = () => {
     const minehunter = document.querySelector(".minehunter");
-    minehunter.classList.remove('displayContainer');
+    minehunter.classList.remove('display-none');
 }

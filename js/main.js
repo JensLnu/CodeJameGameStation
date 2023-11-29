@@ -13,7 +13,7 @@ guessTheNumber.addEventListener("click", () => {
 
 rockPapperSissor.addEventListener("click", () => {
     hidePreviousGame();
-    newrockPapperSissorGame();
+    newRockPapperSissorGame();
 });
 
 memory.addEventListener("click", () => {
@@ -40,6 +40,6 @@ const hidePreviousGame = () => {
     const allGames = [guessNumberGame, rockPapperSissor, memory, pigGame, minehunter];
     
     for (let i = 0; i < allGames.length; i++) {
-        allGames[i].classList.add('displayContainer');
+        allGames[i].classList.add('display-none');
     }
 }
