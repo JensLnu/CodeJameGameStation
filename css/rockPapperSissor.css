@@ -1,6 +1,7 @@
 .local-rock-paper-sissor-container {
     flex-direction: column;
     align-items: center;
+    height: min-content;
 }
 
 .local-rock-paper-sissor-container h2, .local-rock-paper-sissor-container p, .buttonStyle {
@@ -15,25 +16,62 @@
 .weapons div {
     flex-direction: column;
     align-items: center;
+    transition: 1s;
 }
 
 .weapons p {
     font-size: 0.7rem;
 }
 
-.weapon-choies {
-    transition: 1s;
-}
-
 img {
     width: 50px;
 }
 
+.selected-weapon { /* läggs till för att visa vilket "weapon" spelaren valt */
+    background: radial-gradient(#00ff00, var(--detail--light--purple) 70%);
+    border-radius: 50%;
+}
+
 .game-board {
-    gap: 2rem;
+    gap: 0rem;
+}
+
+#game-message {
+    align-self: end;
+    margin-bottom: 1rem;
 }
 
 .playing-hands {
     flex-direction: column;
     align-items: center;
 }
+
+.bot-hand img, .your-hand img {
+    margin-top: 1rem;
+}
+
+.bot-animation {
+    animation: rotatRight 2s ease-in-out;
+}
+
+.your-animation {
+    animation: rotatLeft 2s ease-in-out;
+}
+
+@keyframes rotatLeft {
+  16%, 49%, 83% {
+    transform: translateY(-20px) rotate(-10deg);
+  }  
+  0%, 33%, 66%, 100%  {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes rotatRight {
+    16%, 49%, 83% {
+        transform: translateY(-20px) rotate(10deg);
+    }  
+    0%, 33%, 66%, 100%  {
+        transform: translateY(0) rotate(0deg);
+    }
+  }

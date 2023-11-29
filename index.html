@@ -51,33 +51,35 @@
                 <p id="guessGameScore"></p>
             </div>
         </section>
+
         <!-- rock, paper, sissor -->
         <section class="rockPapperSissor game-container paus-displayContainer">
             <div class="local-rock-paper-sissor-container flex">
                 <h2>Rock, Paper, Sissor</h2>
                 <p>traditional rules, first to five. Make your choies!</p>
                 <figure class="flex weapons">
-                    <div class="flex">
+                    <div class="flex hover">
                         <p>rock</p>
-                        <img src="./img/rockPaperSissor/rock-right.png" alt="hand that display 'rock' in the game" class="hover weapon-choies">
+                        <img src="./img/rockPaperSissor/rock-right.png" alt="hand that display 'rock' in the game" class="weapon-choies selected-weapon1">
                     </div>
-                    <div class="flex">
+                    <div class="flex hover">
                         <p>paper</p>
-                        <img src="./img/rockPaperSissor/paper-right.png" alt="hand that display 'paper' in the game" class="hover weapon-choies">
+                        <img src="./img/rockPaperSissor/paper-right.png" alt="hand that display 'paper' in the game" class="weapon-choies">
                     </div>
-                    <div class="flex">
+                    <div class="flex hover">
                         <p>sissor</p>
-                        <img src="./img/rockPaperSissor/sissor-right.png" alt="hand that display 'sissor' in the game" class="hover weapon-choies">
+                        <img src="./img/rockPaperSissor/sissor-right.png" alt="hand that display 'sissor' in the game" class="weapon-choies">
                     </div>
                 </figure>
-                <div class="game-board flex">
+                <div class="game-board flex display-none">
                     <div class="your-hand playing-hands flex">
                         <p>you</p>
-                        <img src="./img/rockPaperSissor/rock-left.png" alt="hand that display 'rock' in the game">
+                        <img class="your-animation1" src="./img/rockPaperSissor/rock-left.png" alt="hand that display 'rock' in the game">
                     </div>
+                    <p id="game-message"></p>
                     <div class="bot-hand playing-hands flex">
                         <p>bot</p>
-                        <img src="./img/rockPaperSissor/rock-right.png" alt="hand that display 'rock' in the game">
+                        <img class="bot-animation1" src="./img/rockPaperSissor/rock-right.png" alt="hand that display 'rock' in the game">
                     </div>
                 </div>
                 <div class="score">
@@ -87,14 +89,17 @@
                 </div>
             </div>
         </section>
+
         <!-- memory -->
         <section class="memory game-container displayContainer">
             <p>The Memory game is under developing!</p>
         </section>
+
         <!-- the pig game -->
         <section class="pigGame game-container displayContainer">
             <p>The Pig Game is under developing!</p>
         </section>
+
         <!-- minehunter -->
         <section class="minehunter game-container displayContainer">
             <p>Minehunter is under developing!</p>
