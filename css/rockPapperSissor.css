@@ -1,0 +1,39 @@
+.local-rock-paper-sissor-container {
+    flex-direction: column;
+    align-items: center;
+}
+
+.local-rock-paper-sissor-container h2, .local-rock-paper-sissor-container p, .buttonStyle {
+    margin-top: 2rem;
+}
+
+.weapons {
+    justify-content: center;
+    gap: 1rem;
+}
+
+.weapons div {
+    flex-direction: column;
+    align-items: center;
+}
+
+.weapons p {
+    font-size: 0.7rem;
+}
+
+.weapon-choies {
+    transition: 1s;
+}
+
+img {
+    width: 50px;
+}
+
+.game-board {
+    gap: 2rem;
+}
+
+.playing-hands {
+    flex-direction: column;
+    align-items: center;
+}

@@ -12,6 +12,22 @@
     --text--dark--purple:#240046;
 }
 
+/* klasser för spcifika grejer */
+.flex {
+    display: flex;
+}
+
+.hover:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.display-none {
+    /* display: none; */
+}
+
+/* slut */
+
 body {
     min-height: 100vh;
     display: flex;
@@ -53,12 +69,11 @@ header, footer {
     border: 2px solid var(--detail--light--purple);
     border-radius: 2px;
     box-shadow: 1px 1px 5px var(--main--color--purple);
-    transition: opacity 1s;
+    transition: 1s;
 }
 
-.header-ul li:hover, .buttonStyle:hover {
-    opacity: 0.6;
-    cursor: pointer;
+.buttonStyle {
+    margin: 2rem 0;    
 }
 
 main {
