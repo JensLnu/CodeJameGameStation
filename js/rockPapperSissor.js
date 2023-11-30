@@ -20,14 +20,14 @@ const newRockPapperSissorGame = () => {
     const rockPapperSissorContainer = document.querySelector(".rockPapperSissor");
     rockPapperSissorContainer.classList.remove('display-none');
     options.forEach(option => {
-        option.addEventListener("click", startGameRPS)
+        option.addEventListener("click", startGameRPS);
     });
 }
 
 // saves your and bots "weapon" 
 function startGameRPS(event) {
     options.forEach(option => {
-        option.removeEventListener("click", startGameRPS)
+        option.removeEventListener("click", startGameRPS);
     });
     botWeaponIndex = Math.floor(Math.random() * 3);
     yourSelectedWeapon = this;
@@ -85,7 +85,7 @@ function whoWinsGameRPS() {
     if (yourScoreRPS === 1) gameOverRPS('Victory!<br>You reached 5 wins first!');
     else if (botScoreRPS === 1) gameOverRPS('Game Ovar!<br>The bot got 5 wins before you did!');
     else options.forEach(option => {
-        option.addEventListener("click", startGameRPS)
+        option.addEventListener("click", startGameRPS);
     });
 }
 
