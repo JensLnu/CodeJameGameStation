@@ -1,9 +1,3 @@
-const gameArray = ['rock', 'paper', 'sissor'];
-// const rock = document.getElementById('rock');
-// const paper = document.getElementById('paper');
-// const sissor = document.getElementById('sissor');
-// const options = [rock, paper, sissor];
-
 const options = document.querySelectorAll('.weapons img');
 const yourWeapon = document.querySelector('.your-hand img');
 const botWeapon = document.querySelector('.bot-hand img');
@@ -11,64 +5,65 @@ const gameMessageRPS = document.getElementById('game-message');
 const endOfGameRPS = document.querySelector('.end-of-game-RPS');
 const rockPaperSissorScore = document.getElementById('rockPaperSissorScore');
 const gameBoard = document.querySelector('.game-board');
+const gameArray = ['rock', 'paper', 'sissor'];
 
-let yourSelectedWeapon;
-let botWeaponIndex = 0;
-let yourScoreRPS = 0;
-let botScoreRPS = 0;
+let yourSelectedWeapon,
+    botWeaponIndex = 0,
+    yourScoreRPS = 0,
+    botScoreRPS = 0;
 
-
+// toggels a class name
 const toggles = (elem, htmlclass) => elem.classList.toggle(htmlclass);
 
+// displays game and enables buttons
 const newRockPapperSissorGame = () => {
     const rockPapperSissorContainer = document.querySelector(".rockPapperSissor");
-    toggles(rockPapperSissorContainer, 'display-none');
-    //rockPapperSissorContainer.classList.remove('display-none');
+    rockPapperSissorContainer.classList.remove('display-none');
     options.forEach(option => {
         option.addEventListener("click", startGameRPS)
     });
 }
 
-
+// saves your and bots "weapon" 
 function startGameRPS(event) {
     options.forEach(option => {
         option.removeEventListener("click", startGameRPS)
     });
-    console.log(options[0].src)
-    yourWeapon.src = options[0].src;
-    botWeapon.src = options[0].src;
     botWeaponIndex = Math.floor(Math.random() * 3);
     yourSelectedWeapon = this;
-    toggles(yourSelectedWeapon, 'selected-weapon');
-    //yourSelectedWeapon.classList.add('selected-weapon');
-    //toggles(gameBoard, 'display-none');
-    gameBoard.classList.remove('display-none');
-    //toggles(yourWeapon, 'your-animation');
-    yourWeapon.classList.add('your-animation');
-    //toggles(botWeapon, 'bot-animation');
-    botWeapon.classList.add('bot-animation');
-
+    newRoundresetRPS();
     setTimeout(() => showWeapon(event), 2100);
     showGameMessage();
 }
 
+// resets for new round
+function newRoundresetRPS() {
+    yourWeapon.src = options[0].src;
+    botWeapon.src = options[0].src;
+    gameBoard.classList.remove('display-none');
+    toggles(yourWeapon, 'your-animation');
+    toggles(botWeapon, 'bot-animation');
+    toggles(yourSelectedWeapon, 'selected-weapon');
+}
+
+// displays interaktiv messages
 function showGameMessage() {
     setTimeout(() => gameMessageRPS.textContent = 'rock', 333);
     setTimeout(() => gameMessageRPS.textContent = 'paper', 999);
     setTimeout(() => gameMessageRPS.textContent = 'sissor', 1666);
 }
 
+// displays your and bots "weapon"
 function showWeapon(event) {
     toggles(yourSelectedWeapon, 'selected-weapon');
-    //yourSelectedWeapon.classList.remove('selected-weapon');
-    console.log(event.target)
     yourWeapon.src = event.target.src;
     botWeapon.src = options[botWeaponIndex].src;
-    whoWins(event.target);
+    whoWinsRound(event.target);
 }
 
-function whoWins(event) {
-    const user = event.previousElementSibling.textContent;
+// decides who wins and updates score
+function whoWinsRound(event) {
+    const user = event.previousElementSibling.textContent; // heading for weapon
     const bot = gameArray[botWeaponIndex];
     if (user === bot) {
         gameMessageRPS.textContent = 'Draw!';
@@ -79,40 +74,36 @@ function whoWins(event) {
         gameMessageRPS.textContent = 'You lose!';
         botScoreRPS++;
     }
-    updateScore();
+    rockPaperSissorScore.textContent = `You - Bot: ${yourScoreRPS} - ${botScoreRPS}`; // updates score
+    setTimeout(whoWinsGameRPS, 800);
 }
 
-function updateScore() {
-    rockPaperSissorScore.textContent = `You - Bot: ${yourScoreRPS} - ${botScoreRPS}`;
-    if (yourScoreRPS === 5) gameOverRPS('Victory!<br>You reached 5 wins first!');
-    if (botScoreRPS === 5) gameOverRPS('Game Ovar!<br>The bot got 5 wins before you did!');
-    yourWeapon.classList.remove('your-animation');
-    botWeapon.classList.remove('bot-animation');
-    options.forEach(option => {
+// checks if player or bot got 5 wins
+function whoWinsGameRPS() {
+    toggles(yourWeapon, 'your-animation');
+    toggles(botWeapon, 'bot-animation');
+    if (yourScoreRPS === 1) gameOverRPS('Victory!<br>You reached 5 wins first!');
+    else if (botScoreRPS === 1) gameOverRPS('Game Ovar!<br>The bot got 5 wins before you did!');
+    else options.forEach(option => {
         option.addEventListener("click", startGameRPS)
     });
 }
 
+// displays messages who won, when game is finnihed and adds play again button
 function gameOverRPS(message) {
     toggles(endOfGameRPS, 'display-none');
-    //endOfGameRPS.classList.remove('display-none');
     endOfGameRPS.firstElementChild.innerHTML = message;
     const PlayAgainBtnRPS = document.getElementById('play-again-btr-RPS');
     PlayAgainBtnRPS.addEventListener('click', resetRPS);
 }
 
+// resets all data
 function resetRPS() {
-    console.log('reserRPS')
     toggles(endOfGameRPS, 'display-none');
-    //endOfGameRPS.classList.add('display-none');
     yourScoreRPS = 0;
     botScoreRPS = 0;
     rockPaperSissorScore.textContent = '';
     gameMessageRPS.textContent = '';
     toggles(gameBoard, 'display-none');
-    // gameBoard.classList.add('display-none');
+    newRockPapperSissorGame();
 }
-
-
-
-// event.stopPropagation(); // gör att det inte 'bubblar' upp till parent-element

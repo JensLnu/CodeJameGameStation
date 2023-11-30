@@ -43,3 +43,6 @@ const hidePreviousGame = () => {
         allGames[i].classList.add('display-none');
     }
 }
+
+
+// event.stopPropagation(); // gör att det inte 'bubblar' upp till parent-element
