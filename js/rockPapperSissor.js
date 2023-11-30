@@ -82,8 +82,8 @@ function whoWinsRound(event) {
 function whoWinsGameRPS() {
     toggles(yourWeapon, 'your-animation');
     toggles(botWeapon, 'bot-animation');
-    if (yourScoreRPS === 1) gameOverRPS('Victory!<br>You reached 5 wins first!');
-    else if (botScoreRPS === 1) gameOverRPS('Game Ovar!<br>The bot got 5 wins before you did!');
+    if (yourScoreRPS === 5) gameOverRPS('Victory!<br>You reached 5 wins first!');
+    else if (botScoreRPS === 5) gameOverRPS('Game Ovar!<br>The bot got 5 wins before you did!');
     else options.forEach(option => {
         option.addEventListener("click", startGameRPS);
     });
