@@ -1,48 +1,31 @@
-const guessTheNumber = document.getElementById("guess-the-number");
-const rockPapperSissor = document.getElementById("rock-papper-sissor");
-const memory = document.getElementById("memory");
-const thePigGame = document.getElementById("the-pig-game");
-const minehunter = document.getElementById("minehunter");
+const allGameFunctions = [];
+const allGames = document.querySelectorAll('.header-li');
 
-const gameContainer = document.querySelector(".game-container");
+document.addEventListener("DOMContentLoaded", addFunctionality);
 
-guessTheNumber.addEventListener("click", () => {
+// enables buttons
+function addFunctionality() {
+    allGames.forEach(game => {
+        allGameFunctions.push(game.id);
+        game.addEventListener('click', choseGame);
+    });
+}
+
+// displays the game user clicks on
+function choseGame(event) {
     hidePreviousGame();
-    newGuessNumberGame();
-});
-
-rockPapperSissor.addEventListener("click", () => {
-    hidePreviousGame();
-    newRockPapperSissorGame();
-});
-
-memory.addEventListener("click", () => {
-    hidePreviousGame();
-    newMemoryGame();
-});
-
-thePigGame.addEventListener("click", () => {
-    hidePreviousGame();
-    newPigGame();
-});
-
-minehunter.addEventListener("click", () => {
-    hidePreviousGame();
-    newMinehunterGame();
-});
-
-const hidePreviousGame = () => {
-    const guessNumberGame = document.querySelector(".guessNumberGame");
-    const rockPapperSissor = document.querySelector(".rockPapperSissor");
-    const memory = document.querySelector(".memory");
-    const pigGame = document.querySelector(".pigGame");
-    const minehunter = document.querySelector(".minehunter");
-    const allGames = [guessNumberGame, rockPapperSissor, memory, pigGame, minehunter];
-    
     for (let i = 0; i < allGames.length; i++) {
-        allGames[i].classList.add('display-none');
+        if (allGames[i].id === event.target.id) {
+            const runFunction = eval(allGameFunctions[i]);
+            runFunction();
+        }
     }
 }
 
-
-// event.stopPropagation(); // gör att det inte 'bubblar' upp till parent-element
+// makes only one game visible at the time
+function hidePreviousGame() {
+    const allGameContainers = document.querySelectorAll('.game-to-play');
+    allGameContainers.forEach(game => {
+        game.classList.add('display-none');
+    });
+}
