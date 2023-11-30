@@ -5,10 +5,10 @@ const gameMessageRPS = document.getElementById('game-message');
 const endOfGameRPS = document.querySelector('.end-of-game-RPS');
 const rockPaperSissorScore = document.getElementById('rockPaperSissorScore');
 const gameBoard = document.querySelector('.game-board');
-const gameArray = ['rock', 'paper', 'sissor'];
+const gameArray = ['rock', 'paper', 'sissor']; // used to compare players and bots "weapons"
 
-let yourSelectedWeapon,
-    botWeaponIndex = 0,
+let yourSelectedWeapon, // displays which "weapon" you have clicked on
+    botWeaponIndex = 0, // displays right img for bot
     yourScoreRPS = 0,
     botScoreRPS = 0;
 
