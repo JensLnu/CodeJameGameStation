@@ -20,7 +20,14 @@ const newRockPapperSissorGame = () => {
     const rockPapperSissorContainer = document.querySelector(".rockPapperSissor");
     rockPapperSissorContainer.classList.remove('display-none');
     options.forEach(option => {
-        option.addEventListener("click", startGameRPS);
+        option.addEventListener("click", () => {
+            gtag('event', 'new_RPS_game', {
+                'app_name': 'new_RPS_game_app',
+                'screen_name': 'new_RPS_game_name'
+              });
+              
+            startGameRPS();
+        });
     });
 }
 
