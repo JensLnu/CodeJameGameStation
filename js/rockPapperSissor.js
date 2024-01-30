@@ -25,7 +25,7 @@ const newRockPapperSissorGame = () => {
                 'app_name': 'new_RPS_game_app',
                 'screen_name': 'new_RPS_game_name'
               });
-              
+              console.log('click')
             startGameRPS();
         });
     });
